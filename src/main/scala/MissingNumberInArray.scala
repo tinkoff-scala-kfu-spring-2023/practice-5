@@ -10,5 +10,10 @@ object MissingNumberInArray extends App {
     System.out.println("Missing number is " + (expectedSum - actualSum))
   }
 
+  def func(input: Array[Int], total: Int): Int = {
+    input.fold(total * (total + 1) / 2)(_ - _)
+  }
+
   printMissingNumber(Array[Int](1, 2, 3, 5, 6), 6)
+  println(func(Array[Int](1, 2, 3, 5, 6), 6))
 }

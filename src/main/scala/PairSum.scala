@@ -13,5 +13,14 @@ object PairSum extends App {
     }
   }
 
+  def func(number: Array[Int], sum: Int): Seq[(Int, Int)] = {
+    number.foldLeft((Set.empty[Int], Seq.empty[(Int, Int)])){ case ((set, seq), el) =>
+      val target = sum - el
+      if (set.contains(target)) set -> (seq :+ (el, target))
+      else (set + el) -> seq
+    }._2
+  }
+
   pairSumHashSet(Array[Int](2, 4, 7, 5, 9, 10, -1), 9)
+  println(func(Array[Int](2, 4, 7, 5, 9, 10, -1), 9))
 }

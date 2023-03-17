@@ -18,5 +18,9 @@ object FindDuplicatesInArray extends App {
     println(output.mkString(","))
   }
 
+  def func(input: Array[Int]): Seq[Int] = {
+    Set(input:_*).toSeq
+  }
+
   removeDuplicateCollection(Array[Int](1, 2, 3, 4, 6, 5, 7, 7, 9, 8))
 }
